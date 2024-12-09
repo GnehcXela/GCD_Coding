@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Page 5</title>
+    <link rel="stylesheet" href="website_style.css">
+</head>
+<body class="page5">
+    <div class="background-container">
+        <img src="page5.gif" alt="Background">
+    </div>
+
+    <script>
+
+        const images = [
+            "image1.png",
+            "image2.png",
+            "image3.png",
+            "image4.png",
+            "image5.png",
+            "image6.png",
+            "image7.png",
+        ];
+
+        let clickCount = 0;
+        const body = document.body;
+
+        body.addEventListener("click", () => {
+            if (clickCount < images.length) {
+             
+                const img = document.createElement("img");
+                img.src = images[clickCount];
+                img.classList.add("floating-image");
+
+              
+                const imageWidth = 25;
+                const imageHeight = (imageWidth * 0.75);
+                const maxWidth = window.innerWidth - imageWidth;
+                const maxHeight = window.innerHeight - imageHeight;
+
+                img.style.left = Math.random() * maxWidth + "px";
+                img.style.top = Math.random() * maxHeight + "px";
+
+
+                body.appendChild(img);
+
+                clickCount++;
+            } else {
+
+                window.location.href = "page6.html";
+            }
+        });
+    </script>
+</body>
+</html>
